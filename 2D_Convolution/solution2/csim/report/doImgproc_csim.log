@@ -1,0 +1,12 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../test_bench.cpp in debug mode
+   Compiling ../../../../core.cpp in debug mode
+   Generating csim.exe
+Load image ./a.bmp
+Image 1, Rows:320 Cols240
+Calling Core function
+Core function ended
+Output image saved to ./filter_result.bmp
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

@@ -8,9 +8,7 @@
 #define KERNEL_DIM 3
 
 //Image file path
-#define INPUT_IMAGE_CORE   "./ab.bmp"
-#define INPUT_IMAGE_2      "./a.bmp"
-#define INPUT_IMAGE_3      "./c.bmp"
+#define INPUT_IMAGE_CORE   "./c.bmp"
 #define OUTPUT_IMAGE_CORE  "./filter_result.bmp"
 #define OUTPUT_IMAGE_REF   "./filter_resultRef.bmp"
 

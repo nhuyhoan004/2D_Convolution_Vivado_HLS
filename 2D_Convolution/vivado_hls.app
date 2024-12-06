@@ -11,10 +11,12 @@
     <includePaths/>
     <libraryPaths/>
     <Simulation>
-        <SimFlow name="csim" csimMode="0" lastCsimMode="2"/>
+        <SimFlow name="csim" csimMode="0" lastCsimMode="0"/>
     </Simulation>
     <solutions xmlns="">
-        <solution name="solution1" status="active"/>
+        <solution name="solution1" status="inactive"/>
+        <solution name="solution2" status="inactive"/>
+        <solution name="solution3" status="active"/>
     </solutions>
 </project>
 
