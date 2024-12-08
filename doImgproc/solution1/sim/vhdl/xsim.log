@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# xsim v2018.1 (64-bit)
+# SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
+# IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
+# Start of session at: Sun Dec  8 12:16:25 2024
+# Process ID: 15680
+# Current directory: D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl
+# Command line: xsim.exe -mode tcl -source {xsim.dir/doImgproc/xsim_script.tcl}
+# Log file: D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/xsim.log
+# Journal file: D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/doImgproc/xsim_script.tcl
+# xsim {doImgproc} -autoloadwcfg -tclbatch {doImgproc.tcl}
+Vivado Simulator 2018.1
+Time resolution is 1 ps
+source doImgproc.tcl
+## run all
+Note: simulation done!
+Time: 6917425 ns  Iteration: 1  Process: /apatb_doImgproc_top/generate_sim_done_proc  File: D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/doImgproc.autotb.vhd
+Failure: NORMAL EXIT (note: failure is to force the simulator to stop)
+Time: 6917425 ns  Iteration: 1  Process: /apatb_doImgproc_top/generate_sim_done_proc  File: D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/doImgproc.autotb.vhd
+$finish called at time : 6917425 ns
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:25 . Memory (MB): peak = 228.238 ; gain = 0.000
+## quit
+INFO: [Common 17-206] Exiting xsim at Sun Dec  8 12:17:11 2024...
