@@ -5,15 +5,9 @@
 # 
 # ==============================================================
 
-OPTION psf_version = 2.1;
 
-BEGIN driver doImgproc
-
- OPTION supported_peripherals = (doImgproc_v1_0 );
- OPTION driver_state = ACTIVE;
- OPTION copyfiles = all;
- OPTION name = doImgproc;
- OPTION version = 1.0;
-
-END driver
-
+Family       : zynq
+Device       : xc7z020
+Package      : clg484
+Speed Grade  : -1
+Clock Period : 10.000 ns

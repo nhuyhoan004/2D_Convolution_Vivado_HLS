@@ -16,4 +16,4 @@ create_clock -period 10 -name default
 csim_design
 csynth_design
 cosim_design -rtl vhdl
-export_design -format ip_catalog
+export_design -rtl vhdl -format ip_catalog -version "0.0.0"

@@ -5,7 +5,9 @@
       <synLog/>
       <simLog/>
       <mgLog/>
-      <packageLog/>
+      <packageLog>
+        <logs message="ERROR: [IMPL 213-28] Failed to generate IP.&#xD;&#xA;command 'ap_source' returned error code&#xD;&#xA;    while executing&#xD;&#xA;&quot;source D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/export.tcl&quot;&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls::main D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/export.tcl&quot;&#xD;&#xA;    (&quot;uplevel&quot; body line 1)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xD;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls_proc $argv&quot;&#xD;&#xA;" projectName="doImgproc" solutionName="solution1" date="2024-12-08T12:21:55.129+0700"/>
+      </packageLog>
       <csimLog/>
     </logs>
   </errorLogs>

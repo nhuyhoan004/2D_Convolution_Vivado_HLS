@@ -1,18 +1,37 @@
 INFO: [HLS 200-10] Running 'D:/Xilinx/Vivado/2018.1/bin/unwrapped/win64.o/vivado_hls.exe'
-INFO: [HLS 200-10] For user 'nhuyh' on host 'nhuyhoan2004' (Windows NT_amd64 version 6.2) on Sun Dec 08 12:15:25 +0700 2024
+INFO: [HLS 200-10] For user 'nhuyh' on host 'nhuyhoan2004' (Windows NT_amd64 version 6.2) on Sun Dec 08 12:30:17 +0700 2024
 INFO: [HLS 200-10] In directory 'D:/Documents/GitHub/2D_Convolution_Vivado_HLS'
 INFO: [HLS 200-10] Opening project 'D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc'.
 INFO: [HLS 200-10] Opening solution 'D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-1'
-INFO: [COSIM 212-47] Using XSIM for RTL simulation.
-INFO: [COSIM 212-14] Instrumenting C test bench ...
-   Build using "D:/Xilinx/Vivado/2018.1/msys/bin/g++.exe"
-   Compiling apatb_doImgproc.cpp
-   Compiling core.cpp_pre.cpp.tb.cpp
-   Compiling test_core.cpp_pre.cpp.tb.cpp
-   Generating cosim.tv.exe
-INFO: [COSIM 212-302] Starting C TB testing ... 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../test_core.cpp in debug mode
+   Compiling ../../../../core.cpp in debug mode
+   Generating csim.exe
+In file included from D:/Xilinx/Vivado/2018.1/include/floating_point_v7_0_bitacc_cmodel.h:143:0,
+                 from D:/Xilinx/Vivado/2018.1/include/hls_fpo.h:172,
+                 from D:/Xilinx/Vivado/2018.1/include/hls_half.h:57,
+                 from D:/Xilinx/Vivado/2018.1/include/ap_int.h:74,
+                 from D:/Xilinx/Vivado/2018.1/include/ap_axi_sdata.h:86,
+                 from D:/Xilinx/Vivado/2018.1/include/hls/hls_axi_io.h:39,
+                 from D:/Xilinx/Vivado/2018.1/include/hls_video.h:48,
+                 from D:/Xilinx/Vivado/2018.1/include/hls_opencv.h:50,
+                 from ../../../../test_core.cpp:2:
+D:/Xilinx/Vivado/2018.1/include/gmp.h:62:0: warning: "__GMP_LIBGMP_DLL" redefined [enabled by default]
+D:/Xilinx/Vivado/2018.1/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note: this is the location of the previous definition
+In file included from D:/Xilinx/Vivado/2018.1/include/floating_point_v7_0_bitacc_cmodel.h:143:0,
+                 from D:/Xilinx/Vivado/2018.1/include/hls_fpo.h:172,
+                 from D:/Xilinx/Vivado/2018.1/include/hls_half.h:57,
+                 from D:/Xilinx/Vivado/2018.1/include/ap_int.h:74,
+                 from D:/Xilinx/Vivado/2018.1/include/ap_axi_sdata.h:86,
+                 from D:/Xilinx/Vivado/2018.1/include/hls/hls_axi_io.h:39,
+                 from D:/Xilinx/Vivado/2018.1/include/hls_video.h:48,
+                 from ../../../../core.h:1,
+                 from ../../../../core.cpp:1:
+D:/Xilinx/Vivado/2018.1/include/gmp.h:62:0: warning: "__GMP_LIBGMP_DLL" redefined [enabled by default]
+D:/Xilinx/Vivado/2018.1/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note: this is the location of the previous definition
 Load image D:\Documents\GitHub\2D_Convolution_Vivado_HLS\ai.bmp
 Image Rows: 320 Cols: 240
 Calling Reference function
@@ -20,113 +39,5 @@ Reference function ended
 Calling Core function
 Core function ended
 Image processing completed. Results saved.
-INFO: [COSIM 212-333] Generating C post check test bench ...
-INFO: [COSIM 212-12] Generating RTL test bench ...
-INFO: [COSIM 212-322] Starting VHDL simulation. 
-INFO: [COSIM 212-15] Starting XSIM ...
-
-D:\Documents\GitHub\2D_Convolution_Vivado_HLS\doImgproc\solution1\sim\vhdl>call D:/Xilinx/Vivado/2018.1/bin/xelab xil_defaultlib.apatb_doImgproc_top glbl -prj doImgproc.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims --initfile "D:/Xilinx/Vivado/2018.1/data/xsim/ip/xsim_ip.ini" --lib "ieee_proposed=./ieee_proposed" -s doImgproc  
-INFO: [XSIM 43-3496] Using init file passed via -initfile option "D:/Xilinx/Vivado/2018.1/data/xsim/ip/xsim_ip.ini".
-Vivado Simulator 2018.1
-Copyright 1986-1999, 2001-2017 Xilinx, Inc. All Rights Reserved.
-Running: D:/Xilinx/Vivado/2018.1/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_doImgproc_top glbl -prj doImgproc.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims --initfile D:/Xilinx/Vivado/2018.1/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s doImgproc 
-Multi-threading is on. Using 14 slave threads.
-Determining compilation order of HDL files.
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/glbl.v" into library work
-INFO: [VRFC 10-311] analyzing module glbl
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/AESL_sim_pkg.vhd" into library xil_defaultlib
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/AESL_axi_slave_CRTL_BUS.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity AESL_axi_slave_CRTL_BUS
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/AESL_axi_slave_KERNEL_BUS.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity AESL_axi_slave_KERNEL_BUS
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/AESL_axi_s_inStream.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity AESL_axi_s_inStream
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/AESL_axi_s_outStream.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity AESL_axi_s_outStream
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/doImgproc.autotb.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity apatb_doImgproc_top
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/doImgproc.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity doImgproc
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/doImgproc_CRTL_BUS_s_axi.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity doImgproc_CRTL_BUS_s_axi
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/doImgproc_KERNEL_BUS_s_axi.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity doImgproc_KERNEL_BUS_s_axi
-INFO: [VRFC 10-307] analyzing entity doImgproc_KERNEL_BUS_s_axi_ram
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/doImgproc_lineBufbkb.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity doImgproc_lineBufbkb_ram
-INFO: [VRFC 10-307] analyzing entity doImgproc_lineBufbkb
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/doImgproc_mac_muleOg.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity doImgproc_mac_muleOg_DSP48_0
-INFO: [VRFC 10-307] analyzing entity doImgproc_mac_muleOg
-INFO: [VRFC 10-163] Analyzing VHDL file "D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/doImgproc_mac_mulfYi.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity doImgproc_mac_mulfYi_DSP48_1
-INFO: [VRFC 10-307] analyzing entity doImgproc_mac_mulfYi
-Starting static elaboration
-WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/xhdhdnobkup2/mounicav/xsimsource/xsim_HEAD/data/vhdl/src/ieee_2008/numeric_std-body.vhdl:3476]
-WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/xhdhdnobkup2/mounicav/xsimsource/xsim_HEAD/data/vhdl/src/ieee_2008/numeric_std-body.vhdl:3476]
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling package std.standard
-Compiling package std.textio
-Compiling package ieee.std_logic_1164
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling package ieee.numeric_std
-Compiling package ieee.std_logic_textio
-Compiling module work.glbl
-Compiling architecture behave of entity xil_defaultlib.doImgproc_CRTL_BUS_s_axi [doimgproc_crtl_bus_s_axi_default]
-Compiling architecture behave of entity xil_defaultlib.doImgproc_KERNEL_BUS_s_axi_ram [\doImgproc_KERNEL_BUS_s_axi_ram(...]
-Compiling architecture behave of entity xil_defaultlib.doImgproc_KERNEL_BUS_s_axi [doimgproc_kernel_bus_s_axi_defau...]
-Compiling architecture rtl of entity xil_defaultlib.doImgproc_lineBufbkb_ram [\doImgproc_lineBufbkb_ram(1,5)\]
-Compiling architecture arch of entity xil_defaultlib.doImgproc_lineBufbkb [doimgproc_linebufbkb_default]
-Compiling architecture behav of entity xil_defaultlib.doImgproc_mac_muleOg_DSP48_0 [doimgproc_mac_muleog_dsp48_0_def...]
-Compiling architecture arch of entity xil_defaultlib.doImgproc_mac_muleOg [\doImgproc_mac_muleOg(id=1,num_s...]
-Compiling architecture behav of entity xil_defaultlib.doImgproc_mac_mulfYi_DSP48_1 [doimgproc_mac_mulfyi_dsp48_1_def...]
-Compiling architecture arch of entity xil_defaultlib.doImgproc_mac_mulfYi [\doImgproc_mac_mulfYi(id=1,num_s...]
-Compiling architecture behav of entity xil_defaultlib.doImgproc [doimgproc_default]
-Compiling architecture behav of entity xil_defaultlib.AESL_axi_s_inStream [aesl_axi_s_instream_default]
-Compiling architecture behav of entity xil_defaultlib.AESL_axi_s_outStream [aesl_axi_s_outstream_default]
-Compiling architecture behav of entity xil_defaultlib.AESL_axi_slave_KERNEL_BUS [aesl_axi_slave_kernel_bus_defaul...]
-Compiling architecture behav of entity xil_defaultlib.AESL_axi_slave_CRTL_BUS [aesl_axi_slave_crtl_bus_default]
-Compiling architecture behav of entity xil_defaultlib.apatb_doimgproc_top
-Built simulation snapshot doImgproc
-
-****** Webtalk v2018.1 (64-bit)
-  **** SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
-  **** IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
-    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
-
-source D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/xsim.dir/doImgproc/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Sun Dec  8 12:16:23 2024...
-
-****** xsim v2018.1 (64-bit)
-  **** SW Build 2188600 on Wed Apr  4 18:40:38 MDT 2018
-  **** IP Build 2185939 on Wed Apr  4 20:55:05 MDT 2018
-    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
-
-source xsim.dir/doImgproc/xsim_script.tcl
-# xsim {doImgproc} -autoloadwcfg -tclbatch {doImgproc.tcl}
-Vivado Simulator 2018.1
-Time resolution is 1 ps
-source doImgproc.tcl
-## run all
-Note: simulation done!
-Time: 6917425 ns  Iteration: 1  Process: /apatb_doImgproc_top/generate_sim_done_proc  File: D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/doImgproc.autotb.vhd
-Failure: NORMAL EXIT (note: failure is to force the simulator to stop)
-Time: 6917425 ns  Iteration: 1  Process: /apatb_doImgproc_top/generate_sim_done_proc  File: D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1/sim/vhdl/doImgproc.autotb.vhd
-$finish called at time : 6917425 ns
-run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:25 . Memory (MB): peak = 228.238 ; gain = 0.000
-## quit
-INFO: [Common 17-206] Exiting xsim at Sun Dec  8 12:17:11 2024...
-INFO: [COSIM 212-316] Starting C post checking ...
-Load image D:\Documents\GitHub\2D_Convolution_Vivado_HLS\ai.bmp
-Image Rows: 320 Cols: 240
-Calling Reference function
-Reference function ended
-Calling Core function
-Core function ended
-Image processing completed. Results saved.
-INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
-INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
