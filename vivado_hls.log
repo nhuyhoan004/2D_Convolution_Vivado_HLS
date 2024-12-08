@@ -1,13 +1,13 @@
 INFO: [HLS 200-10] Running 'D:/Xilinx/Vivado/2018.1/bin/unwrapped/win64.o/vivado_hls.exe'
-INFO: [HLS 200-10] For user 'nhuyh' on host 'nhuyhoan2004' (Windows NT_amd64 version 6.2) on Fri Dec 06 16:49:24 +0700 2024
+INFO: [HLS 200-10] For user 'nhuyh' on host 'nhuyhoan2004' (Windows NT_amd64 version 6.2) on Sun Dec 08 12:13:06 +0700 2024
 INFO: [HLS 200-10] In directory 'D:/Documents/GitHub/2D_Convolution_Vivado_HLS'
-INFO: [HLS 200-10] Opening project 'D:/Documents/GitHub/2D_Convolution_Vivado_HLS/2D_Convolution'.
-INFO: [HLS 200-10] Opening solution 'D:/Documents/GitHub/2D_Convolution_Vivado_HLS/2D_Convolution/solution3'.
+INFO: [HLS 200-10] Opening project 'D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc'.
+INFO: [HLS 200-10] Opening solution 'D:/Documents/GitHub/2D_Convolution_Vivado_HLS/doImgproc/solution1'.
 INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-1'
 INFO: [SIM 211-2] *************** CSIM start ***************
 INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
-   Compiling ../../../../test_bench.cpp in debug mode
+   Compiling ../../../../test_core.cpp in debug mode
    Compiling ../../../../core.cpp in debug mode
    Generating csim.exe
 In file included from D:/Xilinx/Vivado/2018.1/include/floating_point_v7_0_bitacc_cmodel.h:143:0,
@@ -18,7 +18,7 @@ In file included from D:/Xilinx/Vivado/2018.1/include/floating_point_v7_0_bitacc
                  from D:/Xilinx/Vivado/2018.1/include/hls/hls_axi_io.h:39,
                  from D:/Xilinx/Vivado/2018.1/include/hls_video.h:48,
                  from D:/Xilinx/Vivado/2018.1/include/hls_opencv.h:50,
-                 from ../../../../test_bench.cpp:2:
+                 from ../../../../test_core.cpp:2:
 D:/Xilinx/Vivado/2018.1/include/gmp.h:62:0: warning: "__GMP_LIBGMP_DLL" redefined [enabled by default]
 D:/Xilinx/Vivado/2018.1/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note: this is the location of the previous definition
 In file included from D:/Xilinx/Vivado/2018.1/include/floating_point_v7_0_bitacc_cmodel.h:143:0,
@@ -32,10 +32,12 @@ In file included from D:/Xilinx/Vivado/2018.1/include/floating_point_v7_0_bitacc
                  from ../../../../core.cpp:1:
 D:/Xilinx/Vivado/2018.1/include/gmp.h:62:0: warning: "__GMP_LIBGMP_DLL" redefined [enabled by default]
 D:/Xilinx/Vivado/2018.1/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note: this is the location of the previous definition
-Load image ./c.bmp
-Image 1, Rows:320 Cols240
+Load image D:\Documents\GitHub\2D_Convolution_Vivado_HLS\ai.bmp
+Image Rows: 320 Cols: 240
+Calling Reference function
+Reference function ended
 Calling Core function
 Core function ended
-Output image saved to ./filter_result.bmp
+Image processing completed. Results saved.
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
