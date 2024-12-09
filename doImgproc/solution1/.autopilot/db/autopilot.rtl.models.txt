@@ -1,6 +1,0 @@
-doImgproc_mac_muleOg
-doImgproc_mac_mulfYi
-doImgproc_lineBufbkb
-doImgproc_CRTL_BUS_s_axi
-doImgproc_KERNEL_BUS_s_axi
-doImgproc

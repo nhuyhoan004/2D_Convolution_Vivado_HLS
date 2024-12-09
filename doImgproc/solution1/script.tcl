@@ -5,12 +5,10 @@
 ############################################################
 open_project doImgproc
 set_top doImgproc
-add_files core.cpp
-add_files core.cpp
-add_files -tb test_core.cpp
-add_files -tb test_core.cpp
+add_files conv.cpp
+add_files -tb test_bench.cpp
 open_solution "solution1"
-set_part {xc7z020clg484-1} -tool vivado
+set_part {xc7z020clg484-1}
 create_clock -period 10 -name default
 #source "./doImgproc/solution1/directives.tcl"
 csim_design
