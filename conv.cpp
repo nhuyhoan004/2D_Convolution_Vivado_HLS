@@ -1,13 +1,7 @@
-#include "core.h"
+#include "conv.h"
 
 // Image processing function using convolution
 void doImgproc(hls::stream<uint_8_side_channel>& inStream, hls::stream<int_8_side_channel>& outStream, char kernel[KERNEL_DIM * KERNEL_DIM]) {
-    // AXI-lite interface for kernel and return, AXI-stream interfaces for input and output streams
-    #pragma HLS INTERFACE s_axilite port=kernel bundle=KERNEL_BUS
-    #pragma HLS INTERFACE s_axilite port=return bundle=CRTL_BUS
-    #pragma HLS INTERFACE axis port=inStream
-    #pragma HLS INTERFACE axis port=outStream
-
     // Line buffer to hold image rows
     hls::LineBuffer<KERNEL_DIM, IMG_WIDTH_OR_COLS, unsigned char> lineBuff;
 

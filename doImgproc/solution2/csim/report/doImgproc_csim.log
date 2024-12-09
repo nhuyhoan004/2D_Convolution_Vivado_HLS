@@ -1,9 +1,10 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../test_core.cpp in debug mode
    Compiling ../../../../core.cpp in debug mode
    Generating csim.exe
-Load image D:\Documents\GitHub\2D_Convolution_Vivado_HLS\ai.bmp
-Image Rows: 320 Cols: 240
+Load image D:\Documents\GitHub\2D_Convolution_Vivado_HLS\ai320.bmp
+Image Rows: 320 Cols: 320
 Calling Reference function
 Reference function ended
 Calling Core function

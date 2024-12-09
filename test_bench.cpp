@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <hls_opencv.h>
-#include "core.h"
+#include "conv.h"
 
 // Define a simple 3x3 kernel (identity kernel in this case)
 char kernel[KERNEL_DIM * KERNEL_DIM] = {
