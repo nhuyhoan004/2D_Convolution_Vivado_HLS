@@ -3,12 +3,6 @@
 // Thuc hien xu ly anh su dung kernel tich chap
 void doImgproc(hls::stream<uint_8_side_channel>& inStream, hls::stream<int_8_side_channel>& outStream, char kernel[KERNEL_DIM * KERNEL_DIM]) {
 
-// Define AXI interfaces for kernel and streams
-#pragma HLS INTERFACE s_axilite port=kernel bundle=KERNEL_BUS
-#pragma HLS INTERFACE s_axilite port=return bundle=CRTL_BUS
-#pragma HLS INTERFACE axis port=inStream
-#pragma HLS INTERFACE axis port=outStream
-
 	// Line buffer for the input image rows
     hls::LineBuffer<KERNEL_DIM, IMG_PIXELS_COLS, unsigned char> lineBuff;
     hls::Window<KERNEL_DIM, KERNEL_DIM, short> window;
@@ -23,15 +17,14 @@ void doImgproc(hls::stream<uint_8_side_channel>& inStream, hls::stream<int_8_sid
 
     // Vong lap qua tat ca cac pixel cua anh
     for (int idxPixel = 0; idxPixel < (IMG_PIXELS_COLS * IMG_PIXELS_ROWS); idxPixel++) {
-		#pragma HLS PIPELINE
     	currPixelSideChannel = inStream.read();
         unsigned char pixelIn = currPixelSideChannel.data;
 
         lineBuff.shift_up(idxCol);
         lineBuff.insert_top(pixelIn, idxCol);
 
-        for (int idxWinRow = 0; idxWinRow < KERNEL_DIM; idxWinRow++) {
-            for (int idxWinCol = 0; idxWinCol < KERNEL_DIM; idxWinCol++) {
+        doImgproc_label1:for (int idxWinRow = 0; idxWinRow < KERNEL_DIM; idxWinRow++) {
+            doImgproc_label2:for (int idxWinCol = 0; idxWinCol < KERNEL_DIM; idxWinCol++) {
                 short val = (short)lineBuff.getval(idxWinRow, idxWinCol + pixConvolved);
                 val *= (short)kernel[idxWinRow * KERNEL_DIM + idxWinCol];
                 window.insert(val, idxWinRow, idxWinCol);
@@ -84,8 +77,8 @@ void doImgproc(hls::stream<uint_8_side_channel>& inStream, hls::stream<int_8_sid
 // Tong tat ca gia tri trong cua so tich chap
 short sumWindow(hls::Window<KERNEL_DIM, KERNEL_DIM, short>* window) {
     short accumulator = 0;
-    for (int idxRow = 0; idxRow < KERNEL_DIM; idxRow++) {
-        for (int idxCol = 0; idxCol < KERNEL_DIM; idxCol++) {
+    sumWindow_label10:for (int idxRow = 0; idxRow < KERNEL_DIM; idxRow++) {
+        sumWindow_label11:for (int idxCol = 0; idxCol < KERNEL_DIM; idxCol++) {
             accumulator += window->getval(idxRow, idxCol);
         }
     }
