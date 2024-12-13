@@ -1,24 +1,30 @@
 #include "conv.h"
 
+// Thuc hien xu ly anh su dung kernel tich chap
 void doImgproc(hls::stream<uint_8_side_channel>& inStream, hls::stream<int_8_side_channel>& outStream, char kernel[KERNEL_DIM * KERNEL_DIM]) {
-    
+
+// Define AXI interfaces for kernel and streams
 #pragma HLS INTERFACE s_axilite port=kernel bundle=KERNEL_BUS
 #pragma HLS INTERFACE s_axilite port=return bundle=CRTL_BUS
 #pragma HLS INTERFACE axis port=inStream
 #pragma HLS INTERFACE axis port=outStream
 
-    hls::LineBuffer<KERNEL_DIM, IMG_WIDTH_OR_COLS, unsigned char> lineBuff;
+	// Line buffer for the input image rows
+    hls::LineBuffer<KERNEL_DIM, IMG_PIXELS_COLS, unsigned char> lineBuff;
     hls::Window<KERNEL_DIM, KERNEL_DIM, short> window;
 
     int idxCol = 0, idxRow = 0, pixConvolved = 0;
-    int waitTicks = (IMG_WIDTH_OR_COLS * (KERNEL_DIM - 1) + KERNEL_DIM) / 2;
+    int waitTicks = (IMG_PIXELS_COLS * (KERNEL_DIM - 1) + KERNEL_DIM) / 2;
     int countWait = 0;
+    int sentPixels = 0;
 
     uint_8_side_channel currPixelSideChannel;
     int_8_side_channel dataOutSideChannel;
 
-    for (int idxPixel = 0; idxPixel < (IMG_WIDTH_OR_COLS * IMG_HEIGHT_OR_ROWS); idxPixel++) {
-        currPixelSideChannel = inStream.read();
+    // Vong lap qua tat ca cac pixel cua anh
+    for (int idxPixel = 0; idxPixel < (IMG_PIXELS_COLS * IMG_PIXELS_ROWS); idxPixel++) {
+		#pragma HLS PIPELINE
+    	currPixelSideChannel = inStream.read();
         unsigned char pixelIn = currPixelSideChannel.data;
 
         lineBuff.shift_up(idxCol);
@@ -32,14 +38,15 @@ void doImgproc(hls::stream<uint_8_side_channel>& inStream, hls::stream<int_8_sid
             }
         }
 
+        // Tinh gia tri dau ra cua tich chap khi cua so hop le
         short valOutput = 0;
         if ((idxRow >= KERNEL_DIM - 1) && (idxCol >= KERNEL_DIM - 1)) {
-            valOutput = sumWindow(&window) / 8;
+            valOutput = sumWindow(&window);
             if (valOutput < 0) valOutput = 0;
             pixConvolved++;
         }
 
-        if (idxCol < IMG_WIDTH_OR_COLS - 1) {
+        if (idxCol < IMG_PIXELS_COLS - 1) {
             idxCol++;
         } else {
             idxCol = 0;
@@ -50,6 +57,7 @@ void doImgproc(hls::stream<uint_8_side_channel>& inStream, hls::stream<int_8_sid
         countWait++;
         if (countWait > waitTicks) {
             dataOutSideChannel.data = valOutput;
+            // Sao chep metadata tu stream dau vao
             dataOutSideChannel.keep = currPixelSideChannel.keep;
             dataOutSideChannel.strb = currPixelSideChannel.strb;
             dataOutSideChannel.user = currPixelSideChannel.user;
@@ -57,11 +65,13 @@ void doImgproc(hls::stream<uint_8_side_channel>& inStream, hls::stream<int_8_sid
             dataOutSideChannel.id = currPixelSideChannel.id;
             dataOutSideChannel.dest = currPixelSideChannel.dest;
             outStream.write(dataOutSideChannel);
+			sentPixels++;
         }
     }
 
     for (countWait = 0; countWait < waitTicks; countWait++) {
         dataOutSideChannel.data = 0;
+        // Sao chep metadata tu stream dau vao
         dataOutSideChannel.keep = currPixelSideChannel.keep;
         dataOutSideChannel.strb = currPixelSideChannel.strb;
         dataOutSideChannel.user = currPixelSideChannel.user;
@@ -71,7 +81,7 @@ void doImgproc(hls::stream<uint_8_side_channel>& inStream, hls::stream<int_8_sid
         outStream.write(dataOutSideChannel);
     }
 }
-
+// Tong tat ca gia tri trong cua so tich chap
 short sumWindow(hls::Window<KERNEL_DIM, KERNEL_DIM, short>* window) {
     short accumulator = 0;
     for (int idxRow = 0; idxRow < KERNEL_DIM; idxRow++) {

@@ -2,30 +2,36 @@
 #include <hls_opencv.h>
 #include "conv.h"
 
-// Define a simple 3x3 kernel (identity kernel in this case)
+// Define a 3x3 kernel
 char kernel[KERNEL_DIM * KERNEL_DIM] = {
-    0, 0, 0,
+   0, 0, 0,
     0, 1, 0,
     0, 0, 0,
 };
 
+//char kernel[KERNEL_DIM * KERNEL_DIM] = {
+//   -1, -1, -1,
+//    -1, 8, -1,
+//    -1, -1, -1,
+//};
+
 // Output image buffers for core function and reference function
-char outImage[IMG_HEIGHT_OR_ROWS][IMG_WIDTH_OR_COLS];
-char outImageRef[IMG_HEIGHT_OR_ROWS][IMG_WIDTH_OR_COLS];
+char outImage[IMG_PIXELS_ROWS][IMG_PIXELS_COLS];
+char outImageRef[IMG_PIXELS_ROWS][IMG_PIXELS_COLS];
 
 // Reference convolution function (manual implementation using OpenCV)
-void conv2dByHand(const cv::Mat& src, char dst[][IMG_WIDTH_OR_COLS], char* kernel, int kernelDim) {
-    for (int i = 1; i < src.rows - 1; ++i) { // Traverse rows, skipping borders
-        for (int j = 1; j < src.cols - 1; ++j) { // Traverse cols, skipping borders
+void conv2dByHand(const cv::Mat& src, char dst[IMG_PIXELS_ROWS][IMG_PIXELS_COLS], char* kernel, int kernelDim) {
+    for (int i = 0; i < src.rows; ++i) { // Traverse rows, skipping borders
+        for (int j = 0; j < src.cols; ++j) { // Traverse cols, skipping borders
             int sum = 0;
-            // Perform convolution using the kernel
+            // The kernel
             for (int ki = 0; ki < kernelDim; ++ki) {
                 for (int kj = 0; kj < kernelDim; ++kj) {
                     sum += kernel[ki * kernelDim + kj] * src.at<unsigned char>(i + ki - 1, j + kj - 1);
                 }
             }
-            // Clamp and normalize the result to [0, 255]
-            dst[i][j] = std::max(0, std::min(255, sum / 8));
+
+            dst[i][j] = std::max(0, sum);
         }
     }
 }
@@ -96,6 +102,6 @@ int main() {
     saveImage(OUTPUT_IMAGE_CORE, imgCvOut);
 
     // Print completion message
-    printf("Image processing completed. Results saved.\n");
+    printf("Image processing completed.\n");
     return 0;
 }
