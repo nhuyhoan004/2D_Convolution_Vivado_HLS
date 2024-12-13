@@ -16,15 +16,15 @@ void doImgproc(hls::stream<uint_8_side_channel>& inStream, hls::stream<int_8_sid
     int_8_side_channel dataOutSideChannel;
 
     // Vong lap qua tat ca cac pixel cua anh
-    for (int idxPixel = 0; idxPixel < (IMG_PIXELS_COLS * IMG_PIXELS_ROWS); idxPixel++) {
+    doImgproc_label1:for (int idxPixel = 0; idxPixel < (IMG_PIXELS_COLS * IMG_PIXELS_ROWS); idxPixel++) {
     	currPixelSideChannel = inStream.read();
         unsigned char pixelIn = currPixelSideChannel.data;
 
         lineBuff.shift_up(idxCol);
         lineBuff.insert_top(pixelIn, idxCol);
 
-        for (int idxWinRow = 0; idxWinRow < KERNEL_DIM; idxWinRow++) {
-            for (int idxWinCol = 0; idxWinCol < KERNEL_DIM; idxWinCol++) {
+        doImgproc_label2:for (int idxWinRow = 0; idxWinRow < KERNEL_DIM; idxWinRow++) {
+            doImgproc_label3:for (int idxWinCol = 0; idxWinCol < KERNEL_DIM; idxWinCol++) {
                 short val = (short)lineBuff.getval(idxWinRow, idxWinCol + pixConvolved);
                 val *= (short)kernel[idxWinRow * KERNEL_DIM + idxWinCol];
                 window.insert(val, idxWinRow, idxWinCol);
@@ -62,7 +62,7 @@ void doImgproc(hls::stream<uint_8_side_channel>& inStream, hls::stream<int_8_sid
         }
     }
 
-    for (countWait = 0; countWait < waitTicks; countWait++) {
+    doImgproc_label4:for (countWait = 0; countWait < waitTicks; countWait++) {
         dataOutSideChannel.data = 0;
         // Sao chep metadata tu stream dau vao
         dataOutSideChannel.keep = currPixelSideChannel.keep;
@@ -77,8 +77,8 @@ void doImgproc(hls::stream<uint_8_side_channel>& inStream, hls::stream<int_8_sid
 // Tong tat ca gia tri trong cua so tich chap
 short sumWindow(hls::Window<KERNEL_DIM, KERNEL_DIM, short>* window) {
     short accumulator = 0;
-    for (int idxRow = 0; idxRow < KERNEL_DIM; idxRow++) {
-        for (int idxCol = 0; idxCol < KERNEL_DIM; idxCol++) {
+    sumWindow_label1:for (int idxRow = 0; idxRow < KERNEL_DIM; idxRow++) {
+        sumWindow_label2:for (int idxCol = 0; idxCol < KERNEL_DIM; idxCol++) {
             accumulator += window->getval(idxRow, idxCol);
         }
     }
